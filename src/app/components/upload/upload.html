@@ -1,1 +1,18 @@
-<p>upload works!</p>
+<h2 class="mb-3">Subir imagen</h2>
+
+<input type="file" class="form-control mb-3" accept="image/*"
+       (change)="onFileSelected($event)" />
+
+@if (preview) {
+  <img [src]="preview" alt="Vista previa" class="img-thumbnail mb-3" width="200" />
+}
+
+<button class="btn btn-primary" (click)="send()" [disabled]="!file || uploading">
+  {{ uploading ? 'Subiendo...' : 'Subir' }}
+</button>
+
+@if (message) {
+  <div class="alert mt-3" [class.alert-success]="!isError" [class.alert-danger]="isError">
+    {{ message }}
+  </div>
+}
