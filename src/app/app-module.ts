@@ -15,6 +15,9 @@ import { ServicePostFiles } from './services/service.post.files';
 import { ServiceEquipos } from './services/service.equipos';
 import { ErrorComponent } from './components/error-component/error-component';
 import { EquipoComponent } from './components/equipo-component/equipo-component';
+import { LoginComponent } from './components/login-component/login-component';
+import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
+import { ServiceEmpleados } from './services/service.empleados';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,12 @@ import { EquipoComponent } from './components/equipo-component/equipo-component'
     InformesPdfComponent,
     ErrorComponent,
     EquipoComponent,
+    LoginComponent,
+    SubordinadosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   bootstrap: [App],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServicePostFiles, ServiceEquipos],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServicePostFiles,
+     ServiceEquipos, ServiceEmpleados],
 })
 export class AppModule {}
