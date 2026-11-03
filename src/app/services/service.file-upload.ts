@@ -32,14 +32,14 @@ export class FileUploadService {
 /**
  * También se puede hacer con Observable
  * @Injectable()
- * export class FileUploadService{
- * constructor (private _http: HttpClient){}
+ * export class ServicePostFiles {
+ * constructor(private _http: HttpClient){}
  *
- * postFile(filemodel: FileModel): Observable<any>{
+ * postFile(filemodel: FileModel): Observable<any> {
  * let json = JSON.stringify(filemodel);
  * let header = new HttpHeaders().set("Content-Type", "application/json");
- * let responde = this._http.post(this.url, json, {headers:header});
- * return responde;
- * }
+ * let request = "api/testingfiles";
+ *  let url = environment.apiFiles + request;
+ * return this._http.post(url, json, {headers: header});
  * }
  */

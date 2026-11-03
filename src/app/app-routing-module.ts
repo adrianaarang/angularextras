@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home-component/home-component';
 import { Upload } from './components/upload/upload';
+import { ApiFilesComponent } from './components/api-file-component/api-file-component';
+import { InformesPdfComponent } from './components/informes-pdf-component/informes-pdf-component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'upload', component: Upload },
-  { path: '**', redirectTo: 'home' },
+  { path: 'apiFilesComponent', component: ApiFilesComponent },
+  { path: 'informesPdfComponent', component: InformesPdfComponent }
+
 ];
 
 @NgModule({
