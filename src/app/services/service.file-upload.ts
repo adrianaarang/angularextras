@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { FileUpload } from "../models/file-upload";
+import { FileModel } from "../models/filemodel";
 import { environment } from "../../environments/environment";
 import { firstValueFrom } from "rxjs";
 
@@ -25,7 +25,21 @@ export class FileUploadService {
   // Convierte el fichero, construye el modelo y lo envía a la API
   async uploadFile(file: File): Promise<unknown> {
     const fileContent = await this.toBase64(file);
-    const body = new FileUpload(file.name, fileContent);
+    const body = new FileModel(file.name, fileContent);
     return await firstValueFrom(this._http.post(this.url, body));
   }
 }
+/**
+ * También se puede hacer con Observable
+ * @Injectable()
+ * export class FileUploadService{
+ * constructor (private _http: HttpClient){}
+ *
+ * postFile(filemodel: FileModel): Observable<any>{
+ * let json = JSON.stringify(filemodel);
+ * let header = new HttpHeaders().set("Content-Type", "application/json");
+ * let responde = this._http.post(this.url, json, {headers:header});
+ * return responde;
+ * }
+ * }
+ */

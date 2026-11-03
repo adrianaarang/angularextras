@@ -1,4 +1,4 @@
-export class FileUpload {
+export class FileModel {
     constructor(
         public fileName: string,
         public fileContent: string
