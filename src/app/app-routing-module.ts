@@ -5,6 +5,7 @@ import { Upload } from './components/upload/upload';
 import { ApiFilesComponent } from './components/api-file-component/api-file-component';
 import { InformesPdfComponent } from './components/informes-pdf-component/informes-pdf-component';
 import { ErrorComponent } from './components/error-component/error-component';
+import { EquipoComponent } from './components/equipo-component/equipo-component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'apiFilesComponent', component: ApiFilesComponent },
   { path: 'informesPdfComponent', component: InformesPdfComponent },
   {path: 'error', component: ErrorComponent},
+  {path: 'equipos', component: EquipoComponent}
 
 ];
 

@@ -12,6 +12,7 @@ import { ApiFilesComponent } from './components/api-file-component/api-file-comp
 import { InformesPdfComponent } from './components/informes-pdf-component/informes-pdf-component';
 import { errorInterceptor } from './interceptors/error-interceptor';
 import { ServicePostFiles } from './services/service.post.files';
+import { ServiceEquipos } from './services/service.equipos';
 import { ErrorComponent } from './components/error-component/error-component';
 import { EquipoComponent } from './components/equipo-component/equipo-component';
 
@@ -28,6 +29,6 @@ import { EquipoComponent } from './components/equipo-component/equipo-component'
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   bootstrap: [App],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServicePostFiles],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServicePostFiles, ServiceEquipos],
 })
 export class AppModule {}

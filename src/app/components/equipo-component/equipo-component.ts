@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
+import {ServiceEquipos} from "../../services/service.equipos";
+import { Equipo } from '../../models/equipo';
 @Component({
   selector: 'app-equipo-component',
   standalone: false,
   styleUrl: './equipo-component.css',
   templateUrl: './equipo-component.html',
 })
-export class EquipoComponent {}
+
+export class EquipoComponent implements OnInit {
+  
+  public equipos !: Array<Equipo>;
+
+  constructor(private _cdr:ChangeDetectorRef,
+    private _service: ServiceEquipos
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    this.equipos = await this._service.getEquiposAsync();
+    this._cdr.detectChanges();
+
+  }
+}
