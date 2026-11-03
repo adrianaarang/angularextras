@@ -18,17 +18,30 @@
            <li class="nav-item">
           <a class="nav-link" routerLink="/apiFilesComponent" routerLinkActive="active"> Subir imagen version 2</a>
         </li>
-              <li class="nav-item">
-          <a class="nav-link" routerLink="/equipos" routerLinkActive="active"> Equipos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/subordinados" routerLinkActive="active"> Subordinados</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active"> Iniciar sesión</a>
-        </li>
-
-      </ul>
+          <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/informesPdfComponent']">PDF</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/login']">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/subordinados']">Subordinados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/equipos']">Equipos</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+            </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <button class="btn btn-outline-danger" (click)="logOutEmpleado()">
+            Log Out
+        </button>
     </div>
   </div>
 </nav>

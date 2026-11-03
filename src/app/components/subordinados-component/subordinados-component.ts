@@ -18,14 +18,14 @@ export class SubordinadosComponent implements OnInit {
     private _router: Router
   ){}
 
-
   async ngOnInit(): Promise<void> {
-    if (sessionStorage.getItem("TOKEN") ==null ){
-      this._router.navigate(["/login"]);
-    }else{
-      this.empleados = await this._service.getSubordinadosAsync();
+    this.empleados = await this._service.getSubordinadosAsync();
     this._cdr.detectChanges();
-    }
+    // if (sessionStorage.getItem("TOKEN") == null){
+    //   this._router.navigate(["/login"])
+    // }else{
+    //   this.empleados = await this._service.getSubordinadosAsync();
+    //   this._cdr.detectChanges();
+    // }
   }
-
-  }
+}
