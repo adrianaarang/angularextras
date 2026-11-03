@@ -1,5 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +18,7 @@ import { EquipoComponent } from './components/equipo-component/equipo-component'
 import { LoginComponent } from './components/login-component/login-component';
 import { SubordinadosComponent } from './components/subordinados-component/subordinados-component';
 import { ServiceEmpleados } from './services/service.empleados';
+import { authTokenInterceptor } from './interceptors/auth-token-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,12 @@ import { ServiceEmpleados } from './services/service.empleados';
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   bootstrap: [App],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), ServicePostFiles,
-     ServiceEquipos, ServiceEmpleados],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(withInterceptors([authTokenInterceptor])),
+    ServicePostFiles,
+    ServiceEquipos,
+    ServiceEmpleados,
+  ],
 })
 export class AppModule {}
